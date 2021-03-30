@@ -57,11 +57,11 @@ export const theme = {
     shadow: {
         0: 'none',
         1: '2px 2px 5px rgba(0,0,0,0.2)',
-        2: "2px 2px 6px rgba(0,0,0,0.2)",
-        3: "2px 2px 7px rgba(0,0,0,0.2)",
+        2: '2px 2px 6px rgba(0,0,0,0.2)',
+        3: '2px 2px 7px rgba(0,0,0,0.2)',
     },
-    effects: {
-        glow: 'drop-shadow(0px 0px 5px $color-secondary)'
+    effect: {
+        glow: `drop-shadow(0px 0px 5px ${primaryColor})`
     },
     mediaQuery: {
         mobileS: '320px',
@@ -73,15 +73,3 @@ export const theme = {
         fourK: '2560px',
     }
 };
-
-const LinkFade = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`
