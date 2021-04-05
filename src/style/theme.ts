@@ -1,5 +1,4 @@
 import {darken, lighten} from "polished";
-import {keyframes} from "styled-components/macro";
 
 export type ThemeType = typeof theme;
 
@@ -43,15 +42,18 @@ export const theme = {
             montserrat: `'Montserrat', sans-serif;`
         },
         size: {
-            s3: '0.512rem', // 8.19px
-            s2: '0.64rem', // 10.24px
-            s1: '0.8rem', // 12.80px
-            default: '16px', // https://type-scale.com/ - Major third
-            b1: '1.25rem', // 20.00px
-            b2: '1.563rem', // 25.00px
-            b3: '1.953rem', // 31.25px
-            b4: '2.441rem', // 39.06px
-            b5: '3.052rem' // 48.83px
+            s3: '0.512rem',
+            s2: '0.64rem',
+            s1: '0.8rem',
+            defaultXL: '22px', // 4k
+            defaultL: '16px', // laptop:
+            defaultM: '14px', // tablet:
+            defaultS: '12px', // mobile
+            b1: '1.25rem',
+            b2: '1.563rem',
+            b3: '1.953rem',
+            b4: '2.441rem',
+            b5: '3.052rem'
         }
     },
     shadow: {
@@ -64,12 +66,8 @@ export const theme = {
         glow: `drop-shadow(0px 0px 5px ${primaryColor})`
     },
     mediaQuery: {
-        mobileS: '320px',
-        mobileM: '375px',
-        mobileL: '425px',
-        tablet: '768px',
-        laptop: '1024px',
-        laptopL: '1440px',
-        fourK: '2560px',
+        mobileMax: '425px',
+        tabletMax: '1024px',
+        desktopMax: '1980px',
     }
 };

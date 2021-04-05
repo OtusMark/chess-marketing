@@ -1,12 +1,15 @@
 import React from 'react';
-import {Header} from "./component/Header/Header";
+import {Header} from "./pages/Header/Header";
+import { OverflowWrapper } from './component/_layout/OverflowWrapper';
 import {HomePage} from './pages/home/HomePage';
 
 function App() {
     return (
         <>
-            <Header/>
-            <HomePage/>
+            <OverflowWrapper>
+                <Header/>
+                <HomePage/>
+            </OverflowWrapper>
         </>
     );
 }

@@ -1,7 +1,8 @@
 import styled from "styled-components/macro";
 
-export const BiggerParagraph = styled.p`
+export const DefaultB2Reg = styled.p`
   font-size: ${({theme}) => theme.font.size.b2};
   font-weight: 300;
-  line-height: 1.5;
 `
+
+// Default global font style is located in html tag in GlobalStyles!!!

@@ -1,5 +1,5 @@
 import styled, {keyframes, StyledComponentProps} from "styled-components/macro";
-import {Container} from "../_layout/Container";
+import {Container} from "../../component/_layout/Container";
 import {Burger} from "./Burger";
 import {useState} from "react";
 import logo from '../../assets/img/logo.png'
@@ -56,7 +56,7 @@ const StyledBurger = styled(Burger)`
   display: none;
   z-index: 101;
 
-  @media (max-width: ${({theme}) => theme.mediaQuery.laptop}) {
+  @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
     display: block;
   }
 `
@@ -113,7 +113,7 @@ const NavItems = styled.ul`
 
 const Nav = styled.nav<StyledComponentProps<any, ThemeType, any, any>>`
 
-  @media (max-width: ${({theme}) => theme.mediaQuery.laptop}) {
+  @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
     position: absolute;
     right: 0;
     top: 0;

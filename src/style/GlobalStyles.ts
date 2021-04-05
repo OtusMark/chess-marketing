@@ -24,26 +24,50 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType}>`
   html {
     overflow-x: hidden;
     
-    line-height: 1.4;
     scroll-behavior: smooth;
 
-    @media (max-width: ${({theme}) => theme.mediaQuery.mobileL}) {
-      
-      font-size: ${({theme}) => theme.font.size.s1};
+    // Default global font style
+    font-family: ${({theme}) => theme.font.family.default};
+    color: ${({theme}) => theme.color.white};
+    line-height: 1.5;
+
+    // Default font size
+    font-size: ${({theme}) => theme.font.size.defaultXL};
+
+    // Switch to laptop default font size
+    @media (max-width: ${({theme}) => theme.mediaQuery.desktopMax}) {
+      font-size: ${({theme}) => theme.font.size.defaultL};
+    }
+
+    // Switch to tablet default font size
+    @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
+      font-size: ${({theme}) => theme.font.size.defaultM};
+    }
+
+    // Switch to mobile default font size
+    @media (max-width: ${({theme}) => theme.mediaQuery.mobileMax}) {
+      font-size: ${({theme}) => theme.font.size.defaultS};
     }
   }
 
   body {
     background-color: ${({theme}) => theme.color.black};
-    // Default global font
-    font-family: ${({theme}) => theme.font.family.default};
-    font-size: ${({theme}) => theme.font.size.default};
-    color: ${({theme}) => theme.color.white}
   }
 
   h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
+  }
+  
+  h1 {
+    font-family: ${({theme}) => theme.font.family.montserrat};
+    font-size: ${({theme}) => theme.font.size.b5};
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-size: ${({theme}) => theme.font.size.b2};
+    font-weight: 300;
   }
 
   a {

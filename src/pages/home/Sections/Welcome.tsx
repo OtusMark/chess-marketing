@@ -4,9 +4,9 @@ import {ThemeType} from "../../../style/theme";
 // @ts-ignore
 import bgVideo from '../../../assets/video/intro_bg.mp4'
 import {Button} from "../../../component/_common/Button";
-import {BiggerParagraph} from "../../../component/_typography/BiggerParagraph";
+import {DefaultB2Reg} from "../../../component/_typography/DefaultB2Reg";
 
-export const WelcomeHome = () => {
+export const Welcome = () => {
     return (
         <WelcomeMain id="Welcome">
             <BackgroundVideo autoPlay muted loop>
@@ -15,13 +15,13 @@ export const WelcomeHome = () => {
             <Container>
                 <WelcomeInner>
 
-                    <Title>
+                    <StyledH1>
                         BE 50 STEPS AHEAD<br/> OF YOUR COMPETITION
-                    </Title>
+                    </StyledH1>
 
-                    <Subtitle>
+                    <StyledH2>
                         <span>Get new clients on a daily basis</span> with our lead generation experts<br/>  and start growing your business today.
-                    </Subtitle>
+                    </StyledH2>
 
                     <Button>
                         Get a free consultation
@@ -34,8 +34,6 @@ export const WelcomeHome = () => {
 
 const WelcomeMain = styled.main`
   position: relative;
-  
-  margin-bottom: 3rem;
   
   height: 100vh;
   width: 100%;
@@ -64,7 +62,7 @@ const WelcomeInner = styled.div`
   height: calc(100vh - 120px);
 `
 
-const Title = styled.h1`
+const StyledH1 = styled.h1`
   margin-bottom: 2.5rem;
   font-family: ${({theme}) => theme.font.family.montserrat};
   font-size: ${({theme}) => theme.font.size.b5};
@@ -72,7 +70,7 @@ const Title = styled.h1`
   text-transform: uppercase;
 `
 
-const Subtitle = styled(BiggerParagraph)`
+const StyledH2 = styled.h2`
   
   margin-bottom: 4.375rem;
 
