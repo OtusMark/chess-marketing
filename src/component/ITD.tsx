@@ -1,14 +1,15 @@
 import React from "react";
 import styled, {StyledComponentProps} from "styled-components/macro";
-import {MontB1Bold} from "../_typography/MontB1Bold";
-import {DefaultB1Reg} from "../_typography/DefaultB1Reg";
+import {MontB1Bold} from "./_typography/MontB1Bold";
+import {DefaultB1Reg} from "./_typography/DefaultB1Reg";
 
 
-export const ITD: React.FC<PropsType> = (props) => {
+// ITD stands for Icon, Title, Description.
+export const ITD: React.FC<ITDType> = (props) => {
 
     const {
         color,
-        icon,
+        imgUrl,
         title,
         description,
     } = props
@@ -17,9 +18,9 @@ export const ITD: React.FC<PropsType> = (props) => {
         <ITDMain>
             <IconBlock>
                 <Cube color={color}/>
-                <SvgIcon>
-                    {icon}
-                </SvgIcon>
+
+                    <SvgIcon src={imgUrl} alt=""/>
+
             </IconBlock>
             <TextBlock>
                 <Title>{title}</Title>
@@ -38,17 +39,12 @@ const IconBlock = styled.div`
   position: relative;
 `
 
-const SvgIcon = styled.div`
+const SvgIcon = styled.img`
   position: absolute;
   top: 2rem;
   left: 2rem;
-  
-  & svg {
-    width: 4.54rem;
-    height: 4.54rem;
-    
-    fill: ${({theme}) => theme.color.grey['100']};
-  }
+  width: 4.54rem;
+  height: 4.54rem;
 `
 
 const Cube = styled.div<StyledComponentProps<any, any, any, any>>`
@@ -81,9 +77,9 @@ const Description = styled(DefaultB1Reg)`
 `
 
 // Types
-type PropsType = {
+export type ITDType = {
     color: 'primary' | 'secondary'
-    icon: React.ReactNode
+    imgUrl: string
     title: string
     description: string
 }

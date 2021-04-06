@@ -6,23 +6,23 @@ import {ITD, ITDType} from "../../../component/ITD";
 import {useEffect, useState} from "react";
 import {homepageAPI} from "../../../api/api";
 
-export const Services = () => {
+export const HowWeWork = () => {
 
-    const [services, setServices] = useState([])
+    const [workSteps, setWorkSteps] = useState([])
 
     useEffect(() => {
-        homepageAPI.getServices()
-            .then(res => setServices(res.data))
+        homepageAPI.getHowWeWork()
+            .then(res => setWorkSteps(res.data))
     }, [])
 
     return (
         <SectionWrapper>
             <Container>
-                <SectionTitle title={'Our services'} subtitle={'Powerful and affordable'}/>
+                <SectionTitle title={'How we work'} subtitle={'Simple steps to success'}/>
                 <ServicesInner>
-                    {services.map( (item: ITDType & {id: number, icon: {url: string}}) => (
+                    {workSteps.map( (item: ITDType & {id: number, icon: {url: string}}) => (
                         <ITDWrapper key={item.id}>
-                            <ITD color={'primary'} title={item.title} description={item.description} imgUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.icon.url}`}/>
+                            <ITD color={'secondary'} title={item.title} description={item.description} imgUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.icon.url}`}/>
                         </ITDWrapper>
                     ))}
                 </ServicesInner>
