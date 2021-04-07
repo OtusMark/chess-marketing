@@ -28,6 +28,24 @@ export const homepageAPI = {
 }
 
 // Types
+export type ServicesEntityType = {
+    id: number
+    title: string
+    description: string
+    icon: {
+        url: string
+    }
+}
+
+export type HowWeWorkEntityType = {
+    id: number
+    title: string
+    description: string
+    icon: {
+        url: string
+    }
+}
+
 export type CasesEntityType = {
     id: number
     companyName: string

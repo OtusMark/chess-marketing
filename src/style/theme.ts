@@ -34,6 +34,9 @@ export const theme = {
         black: '#1a1a1a',
         white: '#e9e9e9',
         error: '#cf1313',
+        gradients: {
+            blackTrans: 'linear-gradient(to bottom, rgba(26, 26, 26, 1), rgba(26, 26, 26, .6))'
+        }
     },
     font: {
         source: `https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap`,

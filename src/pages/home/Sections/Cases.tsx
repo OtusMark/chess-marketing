@@ -7,20 +7,17 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import {Case} from "../../../component/Case";
 import styled from "styled-components/macro";
-import {useEffect, useState} from "react";
-import {CasesEntityType, homepageAPI} from "../../../api/api";
+import {CasesEntityType} from "../../../api/api";
+import React from "react";
 
 // install Swiper modules
 SwiperCore.use([Navigation]);
 
-export const Cases = () => {
+export const Cases: React.FC<PropsType> = (props) => {
 
-    const [cases, setCases] = useState<Array<CasesEntityType>>([])
-
-    useEffect(() => {
-        homepageAPI.getCases()
-            .then(res => setCases(res.data))
-    }, [])
+    const {
+        cases
+    } = props
 
     return (
         <SectionWrapper>
@@ -71,3 +68,8 @@ const StyledSwiper = styled(Swiper)`
     }
   }
 `
+
+// Types
+type PropsType = {
+    cases: Array<CasesEntityType>
+}

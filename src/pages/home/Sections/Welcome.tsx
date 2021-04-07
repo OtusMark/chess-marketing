@@ -4,7 +4,6 @@ import {ThemeType} from "../../../style/theme";
 // @ts-ignore
 import bgVideo from '../../../assets/video/intro_bg.mp4'
 import {Button} from "../../../component/_common/Button";
-import {DefaultB2Reg} from "../../../component/_typography/DefaultB2Reg";
 
 export const Welcome = () => {
     return (
@@ -38,7 +37,7 @@ const WelcomeMain = styled.main`
   height: 100vh;
   width: 100%;
   
-  background: linear-gradient(to bottom, rgba(26, 26, 26, 1), rgba(26, 26, 26, .6));
+  background: ${({theme}) => theme.color.gradients.blackTrans};
   overflow: hidden;
 `
 

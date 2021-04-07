@@ -2,23 +2,17 @@ import {Container} from "../../../component/_layout/Container";
 import {SectionWrapper} from "../../../component/_layout/SectionWrapper";
 import styled from "styled-components/macro";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
-import {ITD, ITDType} from "../../../component/ITD";
-import React, {useEffect, useState} from "react";
-import {homepageAPI} from "../../../api/api";
+import {ITD} from "../../../component/ITD";
+import React from "react";
 import {SectionDescription} from "../../../component/_layout/SectionDescription";
+import {ServicesEntityType} from "../../../api/api";
 
 export const Services: React.FC<PropsType> = (props) => {
 
     const {
-        description
+        description,
+        services
     } = props
-
-    const [services, setServices] = useState([])
-
-    useEffect(() => {
-        homepageAPI.getServices()
-            .then(res => setServices(res.data))
-    }, [])
 
     return (
         <SectionWrapper>
@@ -28,7 +22,7 @@ export const Services: React.FC<PropsType> = (props) => {
                     <SectionDescription description={description}/>
                 </SectionDescriptionWrapper>
                 <ServicesInner>
-                    {services.map( (item: ITDType & {id: number, icon: {url: string}}) => (
+                    {services.map( (item: ServicesEntityType) => (
                         <ITDWrapper key={item.id}>
                             <ITD color={'primary'} title={item.title} description={item.description} imgUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.icon.url}`}/>
                         </ITDWrapper>
@@ -68,4 +62,5 @@ const ITDWrapper = styled.div`
 // Types
 type PropsType = {
     description?: string
+    services: Array<ServicesEntityType>
 }

@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {homepageAPI, ReviewsEntityType} from "../../../api/api";
+import React from "react";
+import {ReviewsEntityType} from "../../../api/api";
 import {Container} from "../../../component/_layout/Container";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import {Swiper, SwiperSlide} from "swiper/react";
@@ -11,14 +11,11 @@ import SwiperCore, {Navigation} from "swiper";
 // install Swiper modules
 SwiperCore.use([Navigation]);
 
-export const Reviews = () => {
+export const Reviews: React.FC<PropsType> = (props) => {
 
-    const [reviews, setReviews] = useState<Array<ReviewsEntityType>>([])
-
-    useEffect(() => {
-        homepageAPI.getReviews()
-            .then(res => setReviews(res.data))
-    }, [])
+    const {
+        reviews
+    } = props
 
     return (
         <SectionWrapper>
@@ -51,3 +48,8 @@ const StyledSwiper = styled(Swiper)`
     }
   }
 `
+
+// Types
+type PropsType = {
+    reviews: Array<ReviewsEntityType>
+}

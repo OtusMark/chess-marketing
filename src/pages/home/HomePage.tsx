@@ -5,25 +5,60 @@ import {Services} from "./Sections/Services";
 import {HowWeWork} from "./Sections/HowWeWork";
 import {Cases} from "./Sections/Cases";
 import {Reviews} from "./Sections/Reviews";
-import {homepageAPI, HomeSectionDescriptionsEntityType} from "../../api/api";
+import {
+    CasesEntityType,
+    ContactsEntityType,
+    homepageAPI,
+    HomeSectionDescriptionsEntityType,
+    HowWeWorkEntityType,
+    ReviewsEntityType
+} from "../../api/api";
+import {LoaderFullscreen} from "../../component/LoaderFullscreen";
+import {Contacts} from "./Sections/Contacts";
 
 export const HomePage = () => {
 
+    const [fetching, setFetching] = useState<'loading' | 'done'>('loading')
+
     const [pageDescriptions, setPageDescriptions] = useState<HomeSectionDescriptionsEntityType | null>(null)
+    const [cases, setCases] = useState<Array<CasesEntityType>>([])
+    const [services, setServices] = useState([])
+    const [workSteps, setWorkSteps] = useState<Array<HowWeWorkEntityType>>([])
+    const [reviews, setReviews] = useState<Array<ReviewsEntityType>>([])
+    const [contacts, setContacts] = useState({})
+
 
     useEffect(() => {
-        homepageAPI.getSectionDescriptions()
-            .then(res => setPageDescriptions(res.data))
-    },[])
+        async function fetchData() {
+
+            let sectionDescriptions = await homepageAPI.getSectionDescriptions()
+            let cases = await homepageAPI.getCases()
+            let services = await homepageAPI.getServices()
+            let workSteps = await homepageAPI.getHowWeWork()
+            let reviews = await homepageAPI.getReviews()
+
+            setPageDescriptions(sectionDescriptions.data)
+            setCases(cases.data)
+            setServices(services.data)
+            setWorkSteps(workSteps.data)
+            setReviews(reviews.data)
+        }
+
+        fetchData().then(() => setFetching('done'))
+    }, [])
+
+    console.log(fetching)
 
     return (
         <>
+            {fetching === 'loading' && <LoaderFullscreen/>}
             <Welcome/>
             <About description={pageDescriptions?.about}/>
-            <Services description={pageDescriptions?.services}/>
-            <Cases/>
-            <HowWeWork description={pageDescriptions?.howWeWork}/>
-            <Reviews/>
+            <Services services={services} description={pageDescriptions?.services}/>
+            <Cases cases={cases}/>
+            <HowWeWork workSteps={workSteps} description={pageDescriptions?.howWeWork}/>
+            <Reviews reviews={reviews}/>
+            <Contacts contacts={contacts} description={pageDescriptions?.contacts}/>
         </>
     )
 }
