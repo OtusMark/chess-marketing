@@ -32,7 +32,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "svg-jsx": "npx @svgr/cli src/assets/svg --ignore-existing --out-dir src/component/svg --svgo-config svgo.json --typescript"
   },
   "eslintConfig": {
     "extends": [

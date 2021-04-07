@@ -30,6 +30,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType}>`
     font-family: ${({theme}) => theme.font.family.default};
     color: ${({theme}) => theme.color.white};
     line-height: 1.5;
+    font-weight: 300;
 
     // Default font size
     font-size: ${({theme}) => theme.font.size.defaultXL};

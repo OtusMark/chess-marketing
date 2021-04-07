@@ -2,9 +2,9 @@ import styled, {keyframes, StyledComponentProps} from "styled-components/macro";
 import {Container} from "../../component/_layout/Container";
 import {Burger} from "./Burger";
 import {useState} from "react";
-import logo from '../../assets/img/logo.png'
 import {NavLink} from "react-router-dom";
 import {ThemeType} from "../../style/theme";
+import {Logo} from "../../component/_common/Logo";
 
 export const Header = () => {
 
@@ -20,7 +20,7 @@ export const Header = () => {
                 <HeaderInner>
 
                     <NavLink exact to={'/'}>
-                        <Logo src={logo} alt=""/>
+                        <Logo/>
                     </NavLink>
 
                     <Nav isOpen={isOpen}>
@@ -71,10 +71,6 @@ const HeaderInner = styled.div<StyledComponentProps<any, any, any, any>>`
   transition: all ease-in .2s;
 `
 
-const Logo = styled.img`
-  max-width: 170px;
-`
-
 const LinkFade = keyframes`
   from {
     opacity: 0;
@@ -96,6 +92,8 @@ const NavLinkStyled = styled(NavLink)`
 
   opacity: 1;
   transition: all .2s;
+
+  font-size: ${({theme}) => theme.font.size.b1};
 
   &.active {
     color: ${({theme}) => theme.color.primary.main};

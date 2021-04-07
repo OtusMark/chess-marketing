@@ -57,8 +57,8 @@ const WelcomeInner = styled.div`
   align-items: flex-start;
   justify-content: center;
   
-  margin-top: 120px;
-  height: calc(100vh - 120px);
+  margin-top: ${({theme}) => theme.variable.headerHeight};
+  height: calc(100vh - ${({theme}) => theme.variable.headerHeight});
 `
 
 const StyledH1 = styled.h1`

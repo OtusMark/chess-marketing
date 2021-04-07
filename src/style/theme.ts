@@ -7,7 +7,7 @@ const secondaryColor = '#edba6e'
 
 export const theme = {
     variable: {
-        headerHeight: '120px'
+        headerHeight: '10rem'
     },
     color: {
         primary: {
