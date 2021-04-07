@@ -11,6 +11,56 @@ export const homepageAPI = {
     },
     getHowWeWork() {
         return instance.get('/how-we-work-steps')
+    },
+    getCases() {
+        return instance.get('/cases')
+    },
+    getReviews() {
+        return instance.get('/reviews')
+    },
+    getSectionDescriptions() {
+        return instance.get('/home-page-section-descriptions')
+    },
+    getContacts() {
+        return instance.get('/contacts')
     }
 
+}
+
+// Types
+export type CasesEntityType = {
+    id: number
+    companyName: string
+    companyLogo: {
+        url: string
+    }
+    background: {
+        url: string
+    }
+    improvement_1: string
+    improvement_1_description: string
+    improvement_2: string
+    improvement_2_description: string
+}
+
+export type ReviewsEntityType = {
+    id: number
+    fullName: string
+    review: string
+    picture: {
+        url: string
+    }
+}
+
+export type HomeSectionDescriptionsEntityType = {
+    about: string
+    services: string
+    howWeWork: string
+    contacts: string
+}
+
+export type ContactsEntityType = {
+    email: string
+    phone: string
+    facebook: string
 }

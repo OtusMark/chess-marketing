@@ -3,10 +3,15 @@ import {SectionWrapper} from "../../../component/_layout/SectionWrapper";
 import styled from "styled-components/macro";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import {ITD, ITDType} from "../../../component/ITD";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {homepageAPI} from "../../../api/api";
+import {SectionDescription} from "../../../component/_layout/SectionDescription";
 
-export const Services = () => {
+export const Services: React.FC<PropsType> = (props) => {
+
+    const {
+        description
+    } = props
 
     const [services, setServices] = useState([])
 
@@ -19,6 +24,9 @@ export const Services = () => {
         <SectionWrapper>
             <Container>
                 <SectionTitle title={'Our services'} subtitle={'Powerful and affordable'}/>
+                <SectionDescriptionWrapper>
+                    <SectionDescription description={description}/>
+                </SectionDescriptionWrapper>
                 <ServicesInner>
                     {services.map( (item: ITDType & {id: number, icon: {url: string}}) => (
                         <ITDWrapper key={item.id}>
@@ -43,11 +51,21 @@ const ServicesInner = styled.div`
   }
 `
 
+const SectionDescriptionWrapper = styled.div`
+  width: 50%;
+  padding-bottom: 5.5rem;
+`
+
 const ITDWrapper = styled.div`
   width: 45%;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 
   @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
     width: 100%;
   }
 `
+
+// Types
+type PropsType = {
+    description?: string
+}

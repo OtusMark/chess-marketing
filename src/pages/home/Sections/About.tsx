@@ -1,25 +1,24 @@
 import {Container} from "../../../component/_layout/Container";
 import {SectionWrapper} from "../../../component/_layout/SectionWrapper";
 import styled from "styled-components/macro";
-import {DefaultB2Reg} from "../../../component/_typography/DefaultB2Reg";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
+import React from "react";
+import {SectionDescription} from "../../../component/_layout/SectionDescription";
 
-export const About = () => {
+export const About: React.FC<PropsType> = (props) => {
+
+    const {
+        description
+    } = props
+
     return (
         <SectionWrapper>
             <Container>
                 <SectionTitle title={'About us'} subtitle={'We get results'}/>
                 <AboutInner>
-                    <AboutDescription>
-                        <DefaultB2Reg>
-                            We are a digital marketing agency that’s specializing in bringing new clients to your business on a daily
-                            basis.
-                            If you are looking to grow your business by raising appearance, generating leads, or increasing your sales
-                            online we can provide strong results.
-                            Our experts will help you to scale your business to the top by converting your social media pages
-                            and website traffic into paying customers.
-                        </DefaultB2Reg>
-                    </AboutDescription>
+                    <SectionDescriptionWrapper>
+                        <SectionDescription description={description}/>
+                    </SectionDescriptionWrapper>
                     <div>
                         Image
                     </div>
@@ -35,5 +34,11 @@ const AboutInner = styled.div`
   justify-content: space-between;
 `
 
-const AboutDescription = styled.div`
+const SectionDescriptionWrapper = styled.div`
+    width: 50%;
 `
+
+// Types
+type PropsType = {
+    description?: string
+}

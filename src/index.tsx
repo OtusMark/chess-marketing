@@ -4,20 +4,18 @@ import {HashRouter} from 'react-router-dom';
 import {ThemeProvider} from 'styled-components/macro';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {GlobalStyles} from './style/GlobalStyles';
 import {NormalizeCss} from './style/NormalizeCss';
+import {GlobalStyles} from './style/GlobalStyles';
 import {theme} from "./style/theme";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <HashRouter>
-            <ThemeProvider theme={theme}>
-                <NormalizeCss/>
-                <GlobalStyles/>
-                <App/>
-            </ThemeProvider>
-        </HashRouter>
-    </React.StrictMode>,
+    <HashRouter>
+        <ThemeProvider theme={theme}>
+            <NormalizeCss/>
+            <GlobalStyles/>
+            <App/>
+        </ThemeProvider>
+    </HashRouter>,
     document.getElementById('root')
 );
 

@@ -7,12 +7,20 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import {Case} from "../../../component/Case";
 import styled from "styled-components/macro";
+import {useEffect, useState} from "react";
+import {CasesEntityType, homepageAPI} from "../../../api/api";
 
+// install Swiper modules
+SwiperCore.use([Navigation]);
 
 export const Cases = () => {
 
-    // install Swiper modules
-    SwiperCore.use([Navigation]);
+    const [cases, setCases] = useState<Array<CasesEntityType>>([])
+
+    useEffect(() => {
+        homepageAPI.getCases()
+            .then(res => setCases(res.data))
+    }, [])
 
     return (
         <SectionWrapper>
@@ -21,24 +29,29 @@ export const Cases = () => {
                 <StyledSwiper
                     breakpoints={{
                         0: {
-                            slidesPerView: 1,
+                            slidesPerView: 1
                         },
-                        425: {
-                            slidesPerView: 2,
+                        900: {
+                            slidesPerView: 2
                         },
-                        1300: {
-                            slidesPerView: 3,
+                        1500: {
+                            slidesPerView: 3
                         },
                     }}
                     navigation
                     loop={true}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
                 >
-                    <SwiperSlide><Case/></SwiperSlide>
-                    <SwiperSlide><Case/></SwiperSlide>
-                    <SwiperSlide><Case/></SwiperSlide>
-                    <SwiperSlide><Case/></SwiperSlide>
+                    {cases.map((item: CasesEntityType) => (
+                        <SwiperSlide key={item.id}>
+                            <Case
+                                companyName={item.companyName}
+                                companyLogoUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.companyLogo.url}`}
+                                backgroundUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.background.url}`}
+                                improvement_1={item.improvement_1}
+                                improvement_1_description={item.improvement_1_description}
+                                improvement_2={item.improvement_2}
+                                improvement_2_description={item.improvement_2_description}/>
+                        </SwiperSlide>))}
                 </StyledSwiper>
             </Container>
         </SectionWrapper>
