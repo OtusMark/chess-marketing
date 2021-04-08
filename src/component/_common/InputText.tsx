@@ -1,5 +1,6 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent} from "react";
 import styled, {StyledComponentProps} from "styled-components/macro";
+import InputMask from 'react-input-mask';
 
 // тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
@@ -58,7 +59,7 @@ const InputTextWrapper = styled.div`
   width: 100%;
 `
 
-const StyledInput = styled.input<StyledComponentProps<any, any, any, any>>`
+const StyledInput = styled(InputMask)<StyledComponentProps<any, any, any, any>>`
   // Общие стили инпута
   
   padding: 1rem .5rem;
@@ -66,19 +67,19 @@ const StyledInput = styled.input<StyledComponentProps<any, any, any, any>>`
   
   width: 100%;
 
-  font-size: ${({theme}) => theme.font.size.default};
-  font-family: ${({theme}) => theme.font.family.default};
+  // font-size: ${({theme}) => theme.font.size.default};
+  // font-family: ${({theme}) => theme.font.family.default};
   
   border: 1px solid rgb(109, 109, 109);
 `
 // Стили контейнера с ошибкой
 const StyledError = styled.div`
   position: absolute;
-  bottom: 1px;
+  top: 3.5rem;
 
   // Стили текста ошибки
   & > span {
-    font-size: ${({theme}) => theme.font.size.s1};
-    color: red;
+    color: ${({theme}) => theme.color.error};
+    font-weight: 400;
   }
 `

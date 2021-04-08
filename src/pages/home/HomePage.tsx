@@ -20,12 +20,12 @@ export const HomePage = () => {
 
     const [fetching, setFetching] = useState<'loading' | 'done'>('loading')
 
-    const [pageDescriptions, setPageDescriptions] = useState<HomeSectionDescriptionsEntityType>({about: '', services: '', howWeWork: '', contacts: ''})
+    const [pageDescriptions, setPageDescriptions] = useState<HomeSectionDescriptionsEntityType>({} as HomeSectionDescriptionsEntityType)
     const [cases, setCases] = useState<Array<CasesEntityType>>([])
     const [services, setServices] = useState([])
     const [workSteps, setWorkSteps] = useState<Array<HowWeWorkEntityType>>([])
     const [reviews, setReviews] = useState<Array<ReviewsEntityType>>([])
-    const [contacts, setContacts] = useState<ContactsEntityType>({email: '', phone: '', facebook: ''})
+    const [contacts, setContacts] = useState<ContactsEntityType>({} as ContactsEntityType)
 
 
     useEffect(() => {
@@ -49,13 +49,11 @@ export const HomePage = () => {
         fetchData().then(() => setFetching('done'))
     }, [])
 
-    console.log(contacts)
-
     return (
         <>
             {fetching === 'loading' && <LoaderFullscreen/>}
             <Welcome/>
-            <About description={pageDescriptions?.about}/>
+            <About description={pageDescriptions.about}/>
             <Services services={services} description={pageDescriptions.services}/>
             <Cases cases={cases}/>
             <HowWeWork workSteps={workSteps} description={pageDescriptions.howWeWork}/>
