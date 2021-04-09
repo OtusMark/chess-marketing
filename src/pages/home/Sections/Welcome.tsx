@@ -4,10 +4,20 @@ import {ThemeType} from "../../../style/theme";
 // @ts-ignore
 import bgVideo from '../../../assets/video/intro_bg.mp4'
 import {Button} from "../../../component/_common/Button";
+import {useState} from "react";
+import {ModalForm} from "../../../component/ModalForm";
 
 export const Welcome = () => {
+
+    const [modalOn, setModalOn] = useState(false)
+
+    const activateModal = () => {
+        setModalOn(true)
+    }
+
     return (
-        <WelcomeMain id="Welcome">
+        <WelcomeMain id='welcome'>
+            {modalOn && <ModalForm setModalOn={setModalOn}/>}
             <BackgroundVideo autoPlay muted loop>
                 <source src={bgVideo} type='video/mp4'/>
             </BackgroundVideo>
@@ -22,7 +32,7 @@ export const Welcome = () => {
                         <span>Get new clients on a daily basis</span> with our lead generation experts<br/>  and start growing your business today.
                     </StyledH2>
 
-                    <Button>
+                    <Button onClick={activateModal}>
                         Get a free consultation
                     </Button>
                 </WelcomeInner>

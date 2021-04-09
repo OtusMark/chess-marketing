@@ -4,12 +4,13 @@ import {SectionWrapper} from "../../../component/_layout/SectionWrapper";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import {SectionDescription} from "../../../component/_layout/SectionDescription";
 import styled from "styled-components/macro";
-import {Email} from "../../../component/svg/Email";
-import {Facebook} from "../../../component/svg/Facebook";
-import {Phone} from "../../../component/svg/Phone";
+import {SvgEmail} from "../../../component/svg/SvgEmail";
+import {SvgFacebook} from "../../../component/svg/SvgFacebook";
+import {SvgPhone} from "../../../component/svg/SvgPhone";
 import {DefaultB1Reg} from "../../../component/_typography/DefaultB1Reg";
 import {Logo} from "../../../component/_common/Logo";
 import {ContactForm} from "../../../component/ContactForm";
+import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
 
 export const Contacts: React.FC<PropsType> = (props) => {
 
@@ -20,32 +21,36 @@ export const Contacts: React.FC<PropsType> = (props) => {
 
     return (
         <SectionWrapper>
+            <SectionAnchor id={'contacts'}/>
             <Container>
                 <SectionTitle title={'Contact us'} subtitle={'Start growing your business'}/>
                 <SectionDescriptionWrapper>
                     <SectionDescription description={description}/>
                 </SectionDescriptionWrapper>
                 <ContactsInner>
+
                     <ContactsWrapper>
                         <Contact>
-                            <Phone/>
+                            <SvgPhone/>
                             <ContactText>{contacts.phone}</ContactText>
                         </Contact>
                         <Contact>
-                            <Email/>
+                            <SvgEmail/>
                             <ContactText>{contacts.email}</ContactText>
                         </Contact>
                         <Contact>
-                            <Facebook/>
+                            <SvgFacebook/>
                             <ContactText>{contacts.facebook}</ContactText>
                         </Contact>
                         <LogoWrapper>
                             <Logo/>
                         </LogoWrapper>
                     </ContactsWrapper>
+
                     <FormBlock>
                         <ContactForm/>
                     </FormBlock>
+
                 </ContactsInner>
             </Container>
         </SectionWrapper>

@@ -2,13 +2,28 @@ import {InputText} from "./_common/InputText";
 import {Button} from "./_common/Button";
 import styled, {StyledComponentProps} from "styled-components/macro";
 import {useFormik} from "formik";
+import {homepageAPI} from "../api/api";
+import React from "react";
 
-export const ContactForm = () => {
+export const ContactForm: React.FC<PropsType> = (props) => {
+
+    const {
+        onClickEvent
+    } = props
+
+    const onClickAction = () => {
+        if (onClickEvent) {
+            onClickEvent()
+        }
+    }
 
     const formik = useFormik({
 
         validate: (values: FormValueType) => {
             const errors: FormValueType = {} as FormValueType;
+            if (!values.name) {
+                errors.name = 'Please enter your name'
+            }
             if (!values.email) {
                 errors.email = 'Email is required';
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
@@ -22,20 +37,23 @@ export const ContactForm = () => {
             return errors;
         },
         initialValues: {
+            name: '',
             email: '',
             phone: '',
             description: ''
         },
         onSubmit: values => {
-            console.log(values)
+            homepageAPI.sendEmail(values)
+                .then(() => onClickAction())
         }
     });
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <StyledInputText placeholder={'email'} {...formik.getFieldProps('email')} error={formik.errors.email}/>
-            <StyledInputText placeholder={'phone'} {...formik.getFieldProps('phone')} error={formik.errors.phone} mask={"+1 (999) 999 9999"}/>
-            <StyledTextarea placeholder={'description'} rows="10"/>
+            <StyledInputText placeholder={'Full name'} {...formik.getFieldProps('name')} error={formik.errors.name}/>
+            <StyledInputText placeholder={'Email'} {...formik.getFieldProps('email')} error={formik.errors.email}/>
+            <StyledInputText placeholder={'Phone'} {...formik.getFieldProps('phone')} error={formik.errors.phone} mask={"+1 (999) 999 9999"}/>
+            <StyledTextarea placeholder={'Description'} {...formik.getFieldProps('description')} rows="5"/>
             <StyledButton type={'submit'}>Get free consultation</StyledButton>
         </form>
     )
@@ -58,7 +76,12 @@ const StyledButton = styled(Button)`
 `
 
 // Types
-type FormValueType = {
+export type PropsType = {
+    onClickEvent?: () => void
+}
+
+export type FormValueType = {
+    name: string
     email: string
     phone: string
     description: string

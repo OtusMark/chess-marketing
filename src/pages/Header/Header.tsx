@@ -5,6 +5,8 @@ import {useState} from "react";
 import {NavLink} from "react-router-dom";
 import {ThemeType} from "../../style/theme";
 import {Logo} from "../../component/_common/Logo";
+import {Link as LinkScroll} from "react-scroll/modules";
+import {Link as LinkRouter} from "react-router-dom";
 
 export const Header = () => {
 
@@ -19,18 +21,18 @@ export const Header = () => {
             <Container>
                 <HeaderInner>
 
-                    <NavLink exact to={'/'}>
+                    <LinkRouter to={'/'}>
                         <Logo/>
-                    </NavLink>
+                    </LinkRouter>
 
                     <Nav isOpen={isOpen}>
                         <NavItems>
-                            <NavLinkStyled to={'about'} activeClassName={'active'}>About us</NavLinkStyled>
-                            <NavLinkStyled to={'services'} activeClassName={'active'}>Services</NavLinkStyled>
-                            <NavLinkStyled to={'cases'} activeClassName={'active'}>Cases</NavLinkStyled>
-                            <NavLinkStyled to={'reviews'} activeClassName={'active'}>Reviews</NavLinkStyled>
-                            <NavLinkStyled to={'work'} activeClassName={'active'}>How we work</NavLinkStyled>
-                            <NavLinkStyled to={'contacts'} activeClassName={'active'}>Contact us</NavLinkStyled>
+                            <LinkStyled to={'about'} activeClass={'active'} spy={true}>About us</LinkStyled>
+                            <LinkStyled to={'services'} activeClass={'active'} spy={true}>Services</LinkStyled>
+                            <LinkStyled to={'cases'} activeClass={'active'} spy={true}>Cases</LinkStyled>
+                            <LinkStyled to={'workProcess'} activeClass={'active'} spy={true}>How we work</LinkStyled>
+                            <LinkStyled to={'reviews'} activeClass={'active'} spy={true}>Reviews</LinkStyled>
+                            <LinkStyled to={'contacts'} activeClass={'active'} spy={true}>Contact us</LinkStyled>
                         </NavItems>
                     </Nav>
                     <StyledBurger onClick={openBurgerMenu} isOpen={isOpen}/>
@@ -42,7 +44,7 @@ export const Header = () => {
 }
 
 const HeaderMain = styled.header`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -50,6 +52,8 @@ const HeaderMain = styled.header`
   height: ${({theme}) => theme.variable.headerHeight};
 
   z-index: 100;
+  
+  background-color: ${({theme}) => theme.color.black};
 `
 
 const StyledBurger = styled(Burger)`
@@ -84,7 +88,7 @@ const LinkFade = keyframes`
 `
 // ...Animation
 
-const NavLinkStyled = styled(NavLink)`
+const LinkStyled = styled(LinkScroll)`
   display: inline-block;
   padding: 0 1em;
 
@@ -94,6 +98,8 @@ const NavLinkStyled = styled(NavLink)`
   transition: all .2s;
 
   font-size: ${({theme}) => theme.font.size.b1};
+  
+  cursor: pointer;
 
   &.active {
     color: ${({theme}) => theme.color.primary.main};
@@ -136,7 +142,7 @@ const Nav = styled.nav<StyledComponentProps<any, ThemeType, any, any>>`
       font-size: 1.1rem;
     }
 
-    ${NavLinkStyled} {
+    ${LinkStyled} {
       animation: ${({isOpen}) => isOpen && LinkFade} 3s ease forwards;
     }
   }

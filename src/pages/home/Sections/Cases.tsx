@@ -9,6 +9,7 @@ import {Case} from "../../../component/Case";
 import styled from "styled-components/macro";
 import {CasesEntityType} from "../../../api/api";
 import React from "react";
+import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
 
 // install Swiper modules
 SwiperCore.use([Navigation]);
@@ -21,6 +22,7 @@ export const Cases: React.FC<PropsType> = (props) => {
 
     return (
         <SectionWrapper>
+            <SectionAnchor id={'cases'}/>
             <Container>
                 <SectionTitle title={'Cases'} subtitle={'Trusted by'}/>
                 <StyledSwiper

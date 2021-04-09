@@ -7,6 +7,7 @@ import {SectionWrapper} from "../../../component/_layout/SectionWrapper";
 import styled from "styled-components/macro";
 import {Review} from "../../../component/_typography/Review";
 import SwiperCore, {Navigation} from "swiper";
+import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
 
 // install Swiper modules
 SwiperCore.use([Navigation]);
@@ -19,6 +20,7 @@ export const Reviews: React.FC<PropsType> = (props) => {
 
     return (
         <SectionWrapper>
+            <SectionAnchor id={'reviews'}/>
             <Container>
                 <SectionTitle title={'Reviews'} subtitle={'Words from our clients'}/>
                 <StyledSwiper

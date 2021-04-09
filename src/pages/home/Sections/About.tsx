@@ -4,6 +4,7 @@ import styled from "styled-components/macro";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import React from "react";
 import {SectionDescription} from "../../../component/_layout/SectionDescription";
+import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
 
 export const About: React.FC<PropsType> = (props) => {
 
@@ -13,6 +14,7 @@ export const About: React.FC<PropsType> = (props) => {
 
     return (
         <SectionWrapper>
+            <SectionAnchor id={'about'}/>
             <Container>
                 <SectionTitle title={'About us'} subtitle={'We get results'}/>
                 <AboutInner>

@@ -6,6 +6,7 @@ import {ITD} from "../../../component/ITD";
 import React from "react";
 import {HowWeWorkEntityType} from "../../../api/api";
 import {SectionDescription} from "../../../component/_layout/SectionDescription";
+import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
 
 export const HowWeWork: React.FC<PropsType> = (props) => {
 
@@ -16,15 +17,17 @@ export const HowWeWork: React.FC<PropsType> = (props) => {
 
     return (
         <SectionWrapper>
+            <SectionAnchor id={'workProcess'}/>
             <Container>
                 <SectionTitle title={'How we work'} subtitle={'Simple steps to success'}/>
                 <SectionDescriptionWrapper>
                     <SectionDescription description={description}/>
                 </SectionDescriptionWrapper>
                 <ServicesInner>
-                    {workSteps.map( (item: HowWeWorkEntityType) => (
+                    {workSteps.map((item: HowWeWorkEntityType) => (
                         <ITDWrapper key={item.id}>
-                            <ITD color={'secondary'} title={item.title} description={item.description} imgUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.icon.url}`}/>
+                            <ITD color={'secondary'} title={item.title} description={item.description}
+                                 imgUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.icon.url}`}/>
                         </ITDWrapper>
                     ))}
                 </ServicesInner>
@@ -39,7 +42,7 @@ const ServicesInner = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  
+
   @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
     flex-direction: column;
   }

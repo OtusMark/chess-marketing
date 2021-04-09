@@ -15,11 +15,14 @@ import {
 } from "../../api/api";
 import {LoaderFullscreen} from "../../component/LoaderFullscreen";
 import {Contacts} from "./Sections/Contacts";
+import {Route, Switch} from "react-router-dom";
 
 export const HomePage = () => {
 
+    // Loader state
     const [fetching, setFetching] = useState<'loading' | 'done'>('loading')
 
+    // Server info state
     const [pageDescriptions, setPageDescriptions] = useState<HomeSectionDescriptionsEntityType>({} as HomeSectionDescriptionsEntityType)
     const [cases, setCases] = useState<Array<CasesEntityType>>([])
     const [services, setServices] = useState([])
@@ -52,7 +55,9 @@ export const HomePage = () => {
     return (
         <>
             {fetching === 'loading' && <LoaderFullscreen/>}
+
             <Welcome/>
+
             <About description={pageDescriptions.about}/>
             <Services services={services} description={pageDescriptions.services}/>
             <Cases cases={cases}/>

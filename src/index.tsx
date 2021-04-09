@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import {ThemeProvider} from 'styled-components/macro';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -9,13 +9,13 @@ import {GlobalStyles} from './style/GlobalStyles';
 import {theme} from "./style/theme";
 
 ReactDOM.render(
-    <HashRouter>
+    <BrowserRouter>
         <ThemeProvider theme={theme}>
             <NormalizeCss/>
             <GlobalStyles/>
             <App/>
         </ThemeProvider>
-    </HashRouter>,
+    </BrowserRouter>,
     document.getElementById('root')
 );
 

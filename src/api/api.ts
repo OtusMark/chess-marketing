@@ -1,4 +1,5 @@
 import axios from "axios";
+import {FormValueType} from "../component/ContactForm";
 
 // Axios instance
 const instance = axios.create({
@@ -23,8 +24,10 @@ export const homepageAPI = {
     },
     getContacts() {
         return instance.get('/contacts')
+    },
+    sendEmail(body: FormValueType) {
+        return instance.post('/emails', body)
     }
-
 }
 
 // Types

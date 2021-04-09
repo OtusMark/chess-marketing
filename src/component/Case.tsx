@@ -5,7 +5,6 @@ import {MontB4Bold} from "./_typography/MontB4Bold";
 export const Case: React.FC<PropsType> = (props) => {
 
     const {
-        companyName,
         companyLogoUrl,
         backgroundUrl,
         improvement_1,

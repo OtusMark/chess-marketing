@@ -6,6 +6,7 @@ import {ITD} from "../../../component/ITD";
 import React from "react";
 import {SectionDescription} from "../../../component/_layout/SectionDescription";
 import {ServicesEntityType} from "../../../api/api";
+import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
 
 export const Services: React.FC<PropsType> = (props) => {
 
@@ -16,6 +17,7 @@ export const Services: React.FC<PropsType> = (props) => {
 
     return (
         <SectionWrapper>
+            <SectionAnchor id={'services'}/>
             <Container>
                 <SectionTitle title={'Our services'} subtitle={'Powerful and affordable'}/>
                 <SectionDescriptionWrapper>
