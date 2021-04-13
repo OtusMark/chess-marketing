@@ -13,8 +13,8 @@ export const About: React.FC<PropsType> = (props) => {
     } = props
 
     return (
-        <SectionWrapper>
-            <SectionAnchor id={'about'}/>
+        <SectionWrapper id={'about'}>
+            <SectionAnchor />
             <Container>
                 <SectionTitle title={'About us'} subtitle={'We get results'}/>
                 <AboutInner>

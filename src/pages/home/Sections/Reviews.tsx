@@ -19,8 +19,8 @@ export const Reviews: React.FC<PropsType> = (props) => {
     } = props
 
     return (
-        <SectionWrapper>
-            <SectionAnchor id={'reviews'}/>
+        <SectionWrapper id={'reviews'}>
+            <SectionAnchor />
             <Container>
                 <SectionTitle title={'Reviews'} subtitle={'Words from our clients'}/>
                 <StyledSwiper
@@ -28,8 +28,8 @@ export const Reviews: React.FC<PropsType> = (props) => {
                     loop={true}
                 >
                     {reviews.map((item: ReviewsEntityType) => (
-                        <SwiperSlide key={item.id}>
-                            <Review fullName={item.fullName} pictureUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.picture.url}`} review={item.review}/>
+                        <SwiperSlide key={item._id}>
+                            <Review fullName={item.fullName} pictureUrl={item.picture.url} review={item.review}/>
                         </SwiperSlide>))}
                 </StyledSwiper>
             </Container>

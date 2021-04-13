@@ -26,13 +26,13 @@ export const homepageAPI = {
         return instance.get('/contacts')
     },
     sendEmail(body: FormValueType) {
-        return instance.post('/emails', body)
+        return instance.post('/clients', body)
     }
 }
 
 // Types
 export type ServicesEntityType = {
-    id: number
+    _id: string
     title: string
     description: string
     icon: {
@@ -41,7 +41,8 @@ export type ServicesEntityType = {
 }
 
 export type HowWeWorkEntityType = {
-    id: number
+    _id: string
+    order: string
     title: string
     description: string
     icon: {
@@ -50,7 +51,7 @@ export type HowWeWorkEntityType = {
 }
 
 export type CasesEntityType = {
-    id: number
+    _id: string
     companyName: string
     companyLogo: {
         url: string
@@ -65,7 +66,7 @@ export type CasesEntityType = {
 }
 
 export type ReviewsEntityType = {
-    id: number
+    _id: string
     fullName: string
     review: string
     picture: {

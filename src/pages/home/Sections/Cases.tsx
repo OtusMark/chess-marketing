@@ -21,8 +21,8 @@ export const Cases: React.FC<PropsType> = (props) => {
     } = props
 
     return (
-        <SectionWrapper>
-            <SectionAnchor id={'cases'}/>
+        <SectionWrapper id={'cases'}>
+            <SectionAnchor />
             <Container>
                 <SectionTitle title={'Cases'} subtitle={'Trusted by'}/>
                 <StyledSwiper
@@ -41,11 +41,11 @@ export const Cases: React.FC<PropsType> = (props) => {
                     loop={true}
                 >
                     {cases.map((item: CasesEntityType) => (
-                        <SwiperSlide key={item.id}>
+                        <SwiperSlide key={item._id}>
                             <Case
                                 companyName={item.companyName}
-                                companyLogoUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.companyLogo.url}`}
-                                backgroundUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.background.url}`}
+                                companyLogoUrl={item.companyLogo.url}
+                                backgroundUrl={item.background.url}
                                 improvement_1={item.improvement_1}
                                 improvement_1_description={item.improvement_1_description}
                                 improvement_2={item.improvement_2}

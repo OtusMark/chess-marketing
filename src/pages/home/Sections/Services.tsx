@@ -16,8 +16,8 @@ export const Services: React.FC<PropsType> = (props) => {
     } = props
 
     return (
-        <SectionWrapper>
-            <SectionAnchor id={'services'}/>
+        <SectionWrapper id={'services'}>
+            <SectionAnchor />
             <Container>
                 <SectionTitle title={'Our services'} subtitle={'Powerful and affordable'}/>
                 <SectionDescriptionWrapper>
@@ -25,8 +25,8 @@ export const Services: React.FC<PropsType> = (props) => {
                 </SectionDescriptionWrapper>
                 <ServicesInner>
                     {services.map( (item: ServicesEntityType) => (
-                        <ITDWrapper key={item.id}>
-                            <ITD color={'primary'} title={item.title} description={item.description} imgUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.icon.url}`}/>
+                        <ITDWrapper key={item._id}>
+                            <ITD color={'primary'} title={item.title} description={item.description} imgUrl={item.icon.url}/>
                         </ITDWrapper>
                     ))}
                 </ServicesInner>

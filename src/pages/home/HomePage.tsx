@@ -15,7 +15,6 @@ import {
 } from "../../api/api";
 import {LoaderFullscreen} from "../../component/LoaderFullscreen";
 import {Contacts} from "./Sections/Contacts";
-import {Route, Switch} from "react-router-dom";
 
 export const HomePage = () => {
 

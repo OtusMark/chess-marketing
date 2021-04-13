@@ -24,7 +24,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: ThemeType}>`
   html {
     overflow-x: hidden;
     
-    scroll-behavior: smooth;
+    //scroll-behavior: smooth;
 
     // Default global font style
     font-family: ${({theme}) => theme.font.family.default};

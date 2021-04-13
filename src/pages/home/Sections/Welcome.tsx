@@ -16,7 +16,7 @@ export const Welcome = () => {
     }
 
     return (
-        <WelcomeMain id='welcome'>
+        <WelcomeMain >
             {modalOn && <ModalForm setModalOn={setModalOn}/>}
             <BackgroundVideo autoPlay muted loop>
                 <source src={bgVideo} type='video/mp4'/>

@@ -2,11 +2,11 @@ import styled, {keyframes, StyledComponentProps} from "styled-components/macro";
 import {Container} from "../../component/_layout/Container";
 import {Burger} from "./Burger";
 import {useState} from "react";
-import {NavLink} from "react-router-dom";
+import {Link as LinkRouter} from "react-router-dom";
 import {ThemeType} from "../../style/theme";
 import {Logo} from "../../component/_common/Logo";
 import {Link as LinkScroll} from "react-scroll/modules";
-import {Link as LinkRouter} from "react-router-dom";
+import Scrollspy from 'react-scrollspy'
 
 export const Header = () => {
 
@@ -25,16 +25,40 @@ export const Header = () => {
                         <Logo/>
                     </LinkRouter>
 
-                    <Nav isOpen={isOpen}>
+                    <NavWrapper isOpen={isOpen}>
                         <NavItems>
-                            <LinkStyled to={'about'} activeClass={'active'} spy={true}>About us</LinkStyled>
-                            <LinkStyled to={'services'} activeClass={'active'} spy={true}>Services</LinkStyled>
-                            <LinkStyled to={'cases'} activeClass={'active'} spy={true}>Cases</LinkStyled>
-                            <LinkStyled to={'workProcess'} activeClass={'active'} spy={true}>How we work</LinkStyled>
-                            <LinkStyled to={'reviews'} activeClass={'active'} spy={true}>Reviews</LinkStyled>
-                            <LinkStyled to={'contacts'} activeClass={'active'} spy={true}>Contact us</LinkStyled>
+                               <LinkStyled to={'about'}
+                                           smooth={true}
+                                           offset={-150}
+                                           spy={true}
+                                           duration={500}>About us</LinkStyled>
+                               <LinkStyled to={'services'}
+                                           smooth={true}
+                                           offset={-150}
+                                           spy={true}
+                                           duration={500}>Services</LinkStyled>
+                               <LinkStyled to={'cases'}
+                                           smooth={true}
+                                           offset={-150}
+                                           spy={true}
+                                           duration={500}>Cases</LinkStyled>
+                               <LinkStyled to={'workProcess'}
+                                           smooth={true}
+                                           offset={-150}
+                                           spy={true}
+                                           duration={500}>How we work</LinkStyled>
+                               <LinkStyled to={'reviews'}
+                                           smooth={true}
+                                           offset={-150}
+                                           spy={true}
+                                           duration={500}>Reviews</LinkStyled>
+                               <LinkStyled to={'contacts'}
+                                           smooth={true}
+                                           offset={-150}
+                                           spy={true}
+                                           duration={500}>Contact us</LinkStyled>
                         </NavItems>
-                    </Nav>
+                    </NavWrapper>
                     <StyledBurger onClick={openBurgerMenu} isOpen={isOpen}/>
 
                 </HeaderInner>
@@ -110,12 +134,12 @@ const LinkStyled = styled(LinkScroll)`
   }
 `
 
-const NavItems = styled.ul`
+const NavItems = styled.nav`
   display: flex;
   justify-content: space-between;
 `
 
-const Nav = styled.nav<StyledComponentProps<any, ThemeType, any, any>>`
+const NavWrapper = styled.div<StyledComponentProps<any, ThemeType, any, any>>`
 
   @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
     position: absolute;

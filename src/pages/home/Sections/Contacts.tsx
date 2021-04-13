@@ -20,8 +20,8 @@ export const Contacts: React.FC<PropsType> = (props) => {
     } = props
 
     return (
-        <SectionWrapper>
-            <SectionAnchor id={'contacts'}/>
+        <SectionWrapper id={'contacts'}>
+            <SectionAnchor />
             <Container>
                 <SectionTitle title={'Contact us'} subtitle={'Start growing your business'}/>
                 <SectionDescriptionWrapper>

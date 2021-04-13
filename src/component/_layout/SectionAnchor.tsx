@@ -1,6 +1,7 @@
-import styled from "styled-components/macro";
+import styled, {StyledComponentProps} from "styled-components/macro";
 
-export const SectionAnchor = styled.div`
-  position: absolute;
-   top: -${({theme}) => (theme.variable.headerHeight)};
+export const SectionAnchor = styled.section<StyledComponentProps<any, any, any, any>>`
+  position: relative;
+  top: -${({theme}) => (theme.variable.headerHeight)};
+  height: 100%;
 `

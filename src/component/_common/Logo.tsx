@@ -8,6 +8,6 @@ export const Logo = () => {
 }
 
 const StyledChessLogo = styled(ChessLogo)`
-  height: 4rem;
+  height: 70px;
   width: auto;
 `

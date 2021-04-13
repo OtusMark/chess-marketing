@@ -16,8 +16,8 @@ export const HowWeWork: React.FC<PropsType> = (props) => {
     } = props
 
     return (
-        <SectionWrapper>
-            <SectionAnchor id={'workProcess'}/>
+        <SectionWrapper id={'workProcess'}>
+            <SectionAnchor />
             <Container>
                 <SectionTitle title={'How we work'} subtitle={'Simple steps to success'}/>
                 <SectionDescriptionWrapper>
@@ -25,9 +25,9 @@ export const HowWeWork: React.FC<PropsType> = (props) => {
                 </SectionDescriptionWrapper>
                 <ServicesInner>
                     {workSteps.map((item: HowWeWorkEntityType) => (
-                        <ITDWrapper key={item.id}>
+                        <ITDWrapper key={item._id}>
                             <ITD color={'secondary'} title={item.title} description={item.description}
-                                 imgUrl={`${process.env.REACT_APP_CMS_DOMAIN}${item.icon.url}`}/>
+                                 imgUrl={item.icon.url}/>
                         </ITDWrapper>
                     ))}
                 </ServicesInner>
