@@ -2,17 +2,11 @@ import {SectionWrapper} from "../../../component/_layout/SectionWrapper";
 import {Container} from "../../../component/_layout/Container";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import {Swiper, SwiperSlide} from "swiper/react";
-import SwiperCore, {Navigation} from 'swiper';
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
 import {Case} from "../../../component/Case";
 import styled from "styled-components/macro";
 import {CasesEntityType} from "../../../api/api";
 import React from "react";
 import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
-
-// install Swiper modules
-SwiperCore.use([Navigation]);
 
 export const Cases: React.FC<PropsType> = (props) => {
 
@@ -38,6 +32,7 @@ export const Cases: React.FC<PropsType> = (props) => {
                         },
                     }}
                     navigation
+                    pagination={{ clickable: true }}
                     loop={true}
                 >
                     {cases.map((item: CasesEntityType) => (
@@ -59,7 +54,7 @@ export const Cases: React.FC<PropsType> = (props) => {
 
 // Styles
 const StyledSwiper = styled(Swiper)`
-  height: 25rem;
+  height: 30rem;
   width: 100%;
 
   & .swiper-button-prev, .swiper-button-next {
@@ -67,6 +62,20 @@ const StyledSwiper = styled(Swiper)`
 
     &:hover {
       color: ${({theme}) => theme.color.primary.main};
+    }
+
+    @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
+      display: none;
+    }
+  }
+  
+  & .swiper-pagination-bullet {
+    border-radius: 0;
+    background-color: ${({theme}) => theme.color.primary.main};
+    opacity: 80%;
+    &-active {
+      background-color: ${({theme}) => theme.color.secondary.main};
+      opacity: 100%;
     }
   }
 `

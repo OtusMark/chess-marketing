@@ -6,11 +6,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {SectionWrapper} from "../../../component/_layout/SectionWrapper";
 import styled from "styled-components/macro";
 import {Review} from "../../../component/_typography/Review";
-import SwiperCore, {Navigation} from "swiper";
 import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
-
-// install Swiper modules
-SwiperCore.use([Navigation]);
 
 export const Reviews: React.FC<PropsType> = (props) => {
 
@@ -25,6 +21,7 @@ export const Reviews: React.FC<PropsType> = (props) => {
                 <SectionTitle title={'Reviews'} subtitle={'Words from our clients'}/>
                 <StyledSwiper
                     navigation
+                    pagination={{ clickable: true }}
                     loop={true}
                 >
                     {reviews.map((item: ReviewsEntityType) => (
@@ -47,6 +44,20 @@ const StyledSwiper = styled(Swiper)`
 
     &:hover {
       color: ${({theme}) => theme.color.primary.main};
+    }
+
+    @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
+      display: none;
+    }
+  }
+
+  & .swiper-pagination-bullet {
+    border-radius: 0;
+    background-color: ${({theme}) => theme.color.primary.main};
+    opacity: 80%;
+    &-active {
+      background-color: ${({theme}) => theme.color.secondary.main};
+      opacity: 100%;
     }
   }
 `

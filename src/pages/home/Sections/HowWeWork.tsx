@@ -51,6 +51,10 @@ const ServicesInner = styled.div`
 const SectionDescriptionWrapper = styled.div`
   width: 50%;
   padding-bottom: 5.5rem;
+
+  @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
+    width: 100%;
+  }
 `
 
 const ITDWrapper = styled.div`

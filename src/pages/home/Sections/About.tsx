@@ -14,16 +14,13 @@ export const About: React.FC<PropsType> = (props) => {
 
     return (
         <SectionWrapper id={'about'}>
-            <SectionAnchor />
+            <SectionAnchor/>
             <Container>
                 <SectionTitle title={'About us'} subtitle={'We get results'}/>
                 <AboutInner>
                     <SectionDescriptionWrapper>
                         <SectionDescription description={description}/>
                     </SectionDescriptionWrapper>
-                    <div>
-                        Image
-                    </div>
                 </AboutInner>
             </Container>
         </SectionWrapper>
@@ -37,7 +34,7 @@ const AboutInner = styled.div`
 `
 
 const SectionDescriptionWrapper = styled.div`
-    width: 50%;
+  width: 100%;
 `
 
 // Types

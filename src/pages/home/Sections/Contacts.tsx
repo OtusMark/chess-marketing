@@ -4,9 +4,9 @@ import {SectionWrapper} from "../../../component/_layout/SectionWrapper";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import {SectionDescription} from "../../../component/_layout/SectionDescription";
 import styled from "styled-components/macro";
-import {SvgEmail} from "../../../component/svg/SvgEmail";
-import {SvgFacebook} from "../../../component/svg/SvgFacebook";
-import {SvgPhone} from "../../../component/svg/SvgPhone";
+import {ReactComponent as SvgEmail} from "../../../assets/svg/email.svg";
+import {ReactComponent as SvgFacebook} from "../../../assets/svg/facebook.svg";
+import {ReactComponent as SvgPhone} from "../../../assets/svg/phone.svg";
 import {DefaultB1Reg} from "../../../component/_typography/DefaultB1Reg";
 import {Logo} from "../../../component/_common/Logo";
 import {ContactForm} from "../../../component/ContactForm";
@@ -21,14 +21,14 @@ export const Contacts: React.FC<PropsType> = (props) => {
 
     return (
         <SectionWrapper id={'contacts'}>
-            <SectionAnchor />
+            <SectionAnchor/>
             <Container>
                 <SectionTitle title={'Contact us'} subtitle={'Start growing your business'}/>
                 <SectionDescriptionWrapper>
                     <SectionDescription description={description}/>
                 </SectionDescriptionWrapper>
-                <ContactsInner>
 
+                <ContactsInner>
                     <ContactsWrapper>
                         <Contact>
                             <SvgPhone/>
@@ -42,9 +42,6 @@ export const Contacts: React.FC<PropsType> = (props) => {
                             <SvgFacebook/>
                             <ContactText>{contacts.facebook}</ContactText>
                         </Contact>
-                        <LogoWrapper>
-                            <Logo/>
-                        </LogoWrapper>
                     </ContactsWrapper>
 
                     <FormBlock>
@@ -52,6 +49,11 @@ export const Contacts: React.FC<PropsType> = (props) => {
                     </FormBlock>
 
                 </ContactsInner>
+
+                <LogoWrapper>
+                    <Logo/>
+                </LogoWrapper>
+
             </Container>
         </SectionWrapper>
     )
@@ -61,29 +63,56 @@ export const Contacts: React.FC<PropsType> = (props) => {
 const SectionDescriptionWrapper = styled.div`
   width: 50%;
   padding-bottom: 5.5rem;
+
+  @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
+    width: 100%;
+  }
 `
 
 const ContactsInner = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
+    flex-direction: column;
+  }
 `
 
 const ContactsWrapper = styled.div`
-  position: relative;
-  
-  & div:not(:last-child) {
-    padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 13rem;
+
+  @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
+    height: 20rem;
+
+    div:last-child {
+      margin-bottom: 5rem;
+    }
   }
 `
 
 const Contact = styled.div`
   display: flex;
   align-items: center;
+  
+  svg {
+    width: 2rem;
+    height: 2rem;
+    fill: ${({theme}) => theme.color.secondary.main}
+  }
 `
 
 const FormBlock = styled.div`
   width: 45%;
   height: 100%;
+
+  @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
+    width: 100%;
+    margin-bottom: 7rem;
+  }
 `
 
 const ContactText = styled(DefaultB1Reg)`
@@ -92,8 +121,8 @@ const ContactText = styled(DefaultB1Reg)`
 
 const LogoWrapper = styled.div`
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 10vw;
+  bottom: 3.18rem;
 `
 
 // Types

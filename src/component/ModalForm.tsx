@@ -1,7 +1,7 @@
 import {ContactForm} from "./ContactForm";
 import styled from "styled-components/macro";
 import React from "react";
-import SvgClose from "./svg/SvgClose";
+import {ReactComponent as SvgClose} from "../assets/svg/close.svg";
 
 export const ModalForm: React.FC<PropsType> = (props) => {
 

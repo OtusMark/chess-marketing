@@ -41,7 +41,7 @@ const CaseWrapper = styled.div<StyledComponentProps<any, any, any, any>>`
   padding: 2rem;
 
   width: 80%;
-  height: 100%;
+  height: 90%;
 
   border: 2px solid ${({theme}) => theme.color.secondary.main};
 

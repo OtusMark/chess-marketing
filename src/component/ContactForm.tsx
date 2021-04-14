@@ -42,9 +42,10 @@ export const ContactForm: React.FC<PropsType> = (props) => {
             phone: '',
             description: ''
         },
-        onSubmit: values => {
+        onSubmit: (values, actions) => {
             homepageAPI.sendEmail(values)
                 .then(() => onClickAction())
+                .then(() => actions.resetForm({values: {name: '', email: '', phone: '', description: ''}}))
         }
     });
 

@@ -1,18 +1,17 @@
 import styled, {keyframes, StyledComponentProps} from "styled-components/macro";
-import {Container} from "../../component/_layout/Container";
-import {Burger} from "./Burger";
+import {Container} from "../Container";
+import {Burger} from "../Burger";
 import {useState} from "react";
 import {Link as LinkRouter} from "react-router-dom";
-import {ThemeType} from "../../style/theme";
-import {Logo} from "../../component/_common/Logo";
+import {ThemeType} from "../../../style/theme";
+import {Logo} from "../../_common/Logo";
 import {Link as LinkScroll} from "react-scroll/modules";
-import Scrollspy from 'react-scrollspy'
 
 export const Header = () => {
 
     const [isOpen, setIsOpen] = useState(false)
 
-    const openBurgerMenu = () => {
+    const toggleBurgerMenu = () => {
         setIsOpen(!isOpen)
     }
 
@@ -28,38 +27,44 @@ export const Header = () => {
                     <NavWrapper isOpen={isOpen}>
                         <NavItems>
                                <LinkStyled to={'about'}
+                                           onClick={toggleBurgerMenu}
                                            smooth={true}
                                            offset={-150}
                                            spy={true}
                                            duration={500}>About us</LinkStyled>
                                <LinkStyled to={'services'}
+                                           onClick={toggleBurgerMenu}
                                            smooth={true}
                                            offset={-150}
                                            spy={true}
                                            duration={500}>Services</LinkStyled>
                                <LinkStyled to={'cases'}
+                                           onClick={toggleBurgerMenu}
                                            smooth={true}
                                            offset={-150}
                                            spy={true}
                                            duration={500}>Cases</LinkStyled>
                                <LinkStyled to={'workProcess'}
+                                           onClick={toggleBurgerMenu}
                                            smooth={true}
                                            offset={-150}
                                            spy={true}
                                            duration={500}>How we work</LinkStyled>
                                <LinkStyled to={'reviews'}
+                                           onClick={toggleBurgerMenu}
                                            smooth={true}
                                            offset={-150}
                                            spy={true}
                                            duration={500}>Reviews</LinkStyled>
                                <LinkStyled to={'contacts'}
+                                           onClick={toggleBurgerMenu}
                                            smooth={true}
                                            offset={-150}
                                            spy={true}
                                            duration={500}>Contact us</LinkStyled>
                         </NavItems>
                     </NavWrapper>
-                    <StyledBurger onClick={openBurgerMenu} isOpen={isOpen}/>
+                    <StyledBurger onClick={toggleBurgerMenu} isOpen={isOpen}/>
 
                 </HeaderInner>
             </Container>
