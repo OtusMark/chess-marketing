@@ -39,6 +39,10 @@ const StyledSwiper = styled(Swiper)`
   height: 12rem;
   width: 100%;
 
+  @media (max-width: ${({theme}) => theme.mediaQuery.tabletMax}) {
+    height: 13rem;
+  }
+
   & .swiper-button-prev, .swiper-button-next {
     color: ${({theme}) => theme.color.secondary.main};
 

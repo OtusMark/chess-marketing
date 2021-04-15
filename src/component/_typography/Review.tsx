@@ -26,7 +26,7 @@ export const Review: React.FC<PropsType> = (props) => {
 const ReviewWrapper = styled.div`
   display: flex;
   
-  align-items: center;
+  align-items: start;
   
   width: 90%;
   height: 100%;

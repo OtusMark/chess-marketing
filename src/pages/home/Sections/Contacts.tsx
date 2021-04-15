@@ -32,15 +32,15 @@ export const Contacts: React.FC<PropsType> = (props) => {
                     <ContactsWrapper>
                         <Contact>
                             <SvgPhone/>
-                            <ContactText>{contacts.phone}</ContactText>
+                            <ContactText><a href={`tel:${contacts.phone}`}>{contacts.phone}</a></ContactText>
                         </Contact>
                         <Contact>
                             <SvgEmail/>
-                            <ContactText>{contacts.email}</ContactText>
+                            <ContactText><a href={`mailto:${contacts.email}`}>{contacts.email}</a></ContactText>
                         </Contact>
                         <Contact>
                             <SvgFacebook/>
-                            <ContactText>{contacts.facebook}</ContactText>
+                            <ContactText><a href={`http://${contacts.facebook}`}>{contacts.facebook}</a></ContactText>
                         </Contact>
                     </ContactsWrapper>
 
