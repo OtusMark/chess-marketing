@@ -1,1 +1,1 @@
-# Chess-marketing company website
+# Chess-marketing agency website
