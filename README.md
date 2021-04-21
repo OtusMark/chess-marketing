@@ -1,4 +1,4 @@
-# landing page demo
+# Landing page demo
 
 This is a landing page created with CRA using React, Redux, typescript and Styled-Components. It fetches data from Strapi CMS hosted on Heroku.
 
