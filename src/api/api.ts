@@ -31,7 +31,7 @@ export const homepageAPI = {
 }
 
 // Types
-export type ServicesEntityType = {
+export type ServicesEntityT = {
     _id: string
     title: string
     description: string
@@ -40,7 +40,7 @@ export type ServicesEntityType = {
     }
 }
 
-export type HowWeWorkEntityType = {
+export type HowWeWorkEntityT = {
     _id: string
     order: string
     title: string
@@ -50,7 +50,7 @@ export type HowWeWorkEntityType = {
     }
 }
 
-export type CasesEntityType = {
+export type CasesEntityT = {
     _id: string
     companyName: string
     companyLogo: {
@@ -65,7 +65,7 @@ export type CasesEntityType = {
     improvement_2_description: string
 }
 
-export type ReviewsEntityType = {
+export type ReviewsEntityT = {
     _id: string
     fullName: string
     review: string
@@ -74,14 +74,14 @@ export type ReviewsEntityType = {
     }
 }
 
-export type HomeSectionDescriptionsEntityType = {
+export type HomeSectionDescriptionsEntityT = {
     about: string
     services: string
     howWeWork: string
     contacts: string
 }
 
-export type ContactsEntityType = {
+export type ContactsEntityT = {
     email: string
     phone: string
     facebook: string

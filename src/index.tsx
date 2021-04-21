@@ -7,13 +7,17 @@ import reportWebVitals from './reportWebVitals';
 import {NormalizeCss} from './style/NormalizeCss';
 import {GlobalStyles} from './style/GlobalStyles';
 import {theme} from "./style/theme";
+import {Provider} from "react-redux";
+import {store} from "./bll/store";
 
 ReactDOM.render(
     <BrowserRouter>
         <ThemeProvider theme={theme}>
             <NormalizeCss/>
             <GlobalStyles/>
-            <App/>
+            <Provider store={store}>
+                <App/>
+            </Provider>
         </ThemeProvider>
     </BrowserRouter>,
     document.getElementById('root')

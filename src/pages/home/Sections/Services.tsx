@@ -5,7 +5,7 @@ import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import {ITD} from "../../../component/ITD";
 import React from "react";
 import {SectionDescription} from "../../../component/_layout/SectionDescription";
-import {ServicesEntityType} from "../../../api/api";
+import {ServicesEntityT} from "../../../api/api";
 import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
 
 export const Services: React.FC<PropsType> = (props) => {
@@ -24,7 +24,7 @@ export const Services: React.FC<PropsType> = (props) => {
                     <SectionDescription description={description}/>
                 </SectionDescriptionWrapper>
                 <ServicesInner>
-                    {services.map( (item: ServicesEntityType) => (
+                    {services.map( (item: ServicesEntityT) => (
                         <ITDWrapper key={item._id}>
                             <ITD color={'primary'} title={item.title} description={item.description} imgUrl={item.icon.url}/>
                         </ITDWrapper>
@@ -68,5 +68,5 @@ const ITDWrapper = styled.div`
 // Types
 type PropsType = {
     description?: string
-    services: Array<ServicesEntityType>
+    services: Array<ServicesEntityT>
 }

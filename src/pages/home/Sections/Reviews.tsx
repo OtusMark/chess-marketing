@@ -1,5 +1,5 @@
 import React from "react";
-import {ReviewsEntityType} from "../../../api/api";
+import {ReviewsEntityT} from "../../../api/api";
 import {Container} from "../../../component/_layout/Container";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import {Swiper, SwiperSlide} from "swiper/react";
@@ -24,7 +24,7 @@ export const Reviews: React.FC<PropsType> = (props) => {
                     pagination={{ clickable: true }}
                     loop={true}
                 >
-                    {reviews.map((item: ReviewsEntityType) => (
+                    {reviews.map((item: ReviewsEntityT) => (
                         <SwiperSlide key={item._id}>
                             <Review fullName={item.fullName} pictureUrl={item.picture.url} review={item.review}/>
                         </SwiperSlide>))}
@@ -68,5 +68,5 @@ const StyledSwiper = styled(Swiper)`
 
 // Types
 type PropsType = {
-    reviews: Array<ReviewsEntityType>
+    reviews: Array<ReviewsEntityT>
 }

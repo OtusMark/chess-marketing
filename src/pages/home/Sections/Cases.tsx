@@ -4,7 +4,7 @@ import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Case} from "../../../component/Case";
 import styled from "styled-components/macro";
-import {CasesEntityType} from "../../../api/api";
+import {CasesEntityT} from "../../../api/api";
 import React from "react";
 import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
 
@@ -35,7 +35,7 @@ export const Cases: React.FC<PropsType> = (props) => {
                     pagination={{ clickable: true }}
                     loop={true}
                 >
-                    {cases.map((item: CasesEntityType) => (
+                    {cases.map((item: CasesEntityT) => (
                         <SwiperSlide key={item._id}>
                             <Case
                                 companyName={item.companyName}
@@ -82,5 +82,5 @@ const StyledSwiper = styled(Swiper)`
 
 // Types
 type PropsType = {
-    cases: Array<CasesEntityType>
+    cases: Array<CasesEntityT>
 }

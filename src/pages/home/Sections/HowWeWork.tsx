@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import {SectionTitle} from "../../../component/_layout/SectionTitle";
 import {ITD} from "../../../component/ITD";
 import React from "react";
-import {HowWeWorkEntityType} from "../../../api/api";
+import {HowWeWorkEntityT} from "../../../api/api";
 import {SectionDescription} from "../../../component/_layout/SectionDescription";
 import {SectionAnchor} from "../../../component/_layout/SectionAnchor";
 
@@ -24,7 +24,7 @@ export const HowWeWork: React.FC<PropsType> = (props) => {
                     <SectionDescription description={description}/>
                 </SectionDescriptionWrapper>
                 <ServicesInner>
-                    {workSteps.map((item: HowWeWorkEntityType) => (
+                    {workSteps.map((item: HowWeWorkEntityT) => (
                         <ITDWrapper key={item._id}>
                             <ITD color={'secondary'} title={item.title} description={item.description}
                                  imgUrl={item.icon.url}/>
@@ -69,5 +69,5 @@ const ITDWrapper = styled.div`
 // Types
 type PropsType = {
     description?: string
-    workSteps: Array<HowWeWorkEntityType>
+    workSteps: Array<HowWeWorkEntityT>
 }
